@@ -1,578 +1,664 @@
-@charset "utf-8";
-body{
+@charset 'utf-8';
+
+body {
     font-size: 16px;
+    line-height: 1.5;
     color: #fff;
     background: #bed6d6;
-    line-height: 1.5;
-	-webkit-text-size-adjust:100%;   
+
+    -webkit-text-size-adjust: 100%;
 }
-img{
-	vertical-align: bottom;
-	max-width: 100%;
-	height: auto;
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
 }
-*{
-	box-sizing: border-box;
+
+* {
+    box-sizing: border-box;
 }
+
 @font-face {
     font-family: futura;
-    src: url('../wf/Futura\ Bold\ font.ttf') format("opentype");}
+
+    src: url('../wf/Futura\ Bold\ font.ttf') format('opentype');
+}
+
 @font-face {
     font-family: futura02;
-    src: url('../wf/futura\ medium\ bt.ttf') format("opentype");}
+
+    src: url('../wf/futura\ medium\ bt.ttf') format('opentype');
+}
+
 @import url('https://fonts.googleapis.com/css2? family= M+PLUS+Rounded+1c:wght@500;900 & display=swap');
-
-
-
-
 
 /* ======================================
             スマホスタイル用
 ====================================== */
-#wrapper{
-	width: 100%;
-	margin: 0 auto;
-	overflow: hidden;
+#wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
 }
+
 /*ハンバーガーボタンクリック前*/
 /* クリックエリアと位置を指定 ---------------------- */
 .btnHamburger {
-  position: fixed;
-  top: 30px;
-  left: 30px;
-  width: 30px; /* クリックエリアの横幅*/
-  height: 20px; /* クリックエリアの高さ*/
-  cursor: pointer;
+    position: fixed;
     z-index: 2000;
+    top: 30px;
+    left: 30px;
+    width: 30px;
+    /* クリックエリアの横幅*/
+    height: 20px;
+    /* クリックエリアの高さ*/
+    cursor: pointer;
 }
 
 /* 2本線の1本ごとに共通するスタイルを指定 ---------------------- */
 .btnHamburger .line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 30px; /* 横幅 */
-  height: 3px; /* 1本辺りの高さ */
-  background: #fff; /* 線の色 */
-  border-radius: 100px;
-
-  /* 適用するプロパティ、変化する時間、変化する速度 */
-/*  -webkit-transition: all 0.3s ease-out;*/
-  transition: 0.5s;
- }
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 30px;
+    /* 横幅 */
+    height: 3px;
+    /* 適用するプロパティ、変化する時間、変化する速度 */
+    /*  -webkit-transition: all 0.3s ease-out;*/
+    transition: .5s;
+    /* 線の色 */
+    border-radius: 100px;
+    /* 1本辺りの高さ */
+    background: #fff;
+}
 
 /* 3本線の各線の位置を指定 ---------------------- */
-.btnHamburger .line_01 { top: 0; }
-.btnHamburger .line_03 { top: 12px; }
+.btnHamburger .line_01 {
+    top: 0;
+}
 
+.btnHamburger .line_03 {
+    top: 12px;
+}
 
 /*#coverlayerクリック前*/
-#coverlayer{
-	width: 100%;
-	background: #FAF5F0;
-	position: fixed;
-	top: 0;
-	left: -100%;
-	bottom: 0;
-	transition: 0.5s;
+#coverlayer {
+    position: fixed;
     z-index: 1900;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    transition: .5s;
+    background: #faf5f0;
 }
 
 /*navクリック前*/
-nav{
-	position: fixed;
-	top: 11vh;
-	left: -180px;
-	width: 180px;
-	opacity: 0;
-	transition: 0.5s;
-	z-index: 2000;
-    text-align: center;
+nav {
     font-family: futura02;
     font-size: 20px;
+    position: fixed;
+    z-index: 2000;
+    top: 11vh;
+    left: -180px;
+    width: 180px;
+    transition: .5s;
+    text-align: center;
+    opacity: 0;
 }
-
-
-
-
-
-
 
 /*ハンバーガーボタンクリック後*/
 /* 最上部の線のスタイル ---------------------- */
 .btnHamburger.is-active .line_01 {
-  top: 8px; /* 上から2番目の線の位置に変更 */
-	background: #667f70;
-
-  /* 線を45度回転 */
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+    top: 8px;
+    /* 線を45度回転 */
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    /* 上から2番目の線の位置に変更 */
+    background: #667f70;
 }
 
 /* 上から2番目の線のスタイル ---------------------- */
 .btnHamburger.is-active .line_02 {
-  opacity: 0; /* 不透明度を下げて線を消す */
+    opacity: 0;
+    /* 不透明度を下げて線を消す */
 }
-   
+
 /* 最下部の線のスタイル ---------------------- */
 .btnHamburger.is-active .line_03 {
-  top: 8px; /* 上から2番目の線の位置に変更 */
-	background: #667f70;
-
-  /* 線を135度回転 */
-  -webkit-transform: rotate(135deg);
-  transform: rotate(135deg);
+    top: 8px;
+    /* 線を135度回転 */
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    /* 上から2番目の線の位置に変更 */
+    background: #667f70;
 }
-
 
 /*#coverlayerクリック後*/
-#coverlayer.is-active{
-	width: 100%;
-    left: 0;
+#coverlayer.is-active {
     z-index: 1900;
+    left: 0;
+    width: 100%;
 }
-
 
 /*navクリック後*/
-nav.is-active{
-	left:52%;
-	transform: translateX(-50%);
-	opacity: 1;
-	
+nav.is-active {
+    left: 52%;
+    transform: translateX(-50%);
+    opacity: 1;
 }
-
-
-
-
 
 nav ul li {
-	line-height: 50px;
+    line-height: 50px;
     padding-bottom: 30px;
 }
+
 nav a:link {
+    text-decoration: none;
     color: #88ab97;
-	text-decoration: none;
 }
+
 nav a:visited {
+    text-decoration: none;
     color: #88ab97;
-	text-decoration: none;
 }
+
 nav a:active {
-    color: #cf8043;
     text-decoration: underline;
+    color: #cf8043;
 }
+
 nav a:hover {
-    color: #cf8043;
     text-decoration: underline;
+    color: #cf8043;
 }
+
 footer a:link {
+    text-decoration: none;
     color: #fff;
-	text-decoration: none;
 }
+
 footer a:visited {
+    text-decoration: none;
     color: #fff;
-	text-decoration: none;
 }
+
 footer a:active {
-    color: #cf8043;
     text-decoration: underline;
+    color: #cf8043;
 }
+
 footer a:hover {
-    color: #cf8043;
     text-decoration: underline;
+    color: #cf8043;
 }
+
 /* ========= ヘッダー ========= */
 header {
     position: relative;
     height: 100vh;
 }
+
 header h1 {
-    position: absolute;
-    font-size: 19px;
     font-family: futura;
-    letter-spacing: 0.3em;
+    font-size: 19px;
+    position: absolute;
     top: 48vh;
     left: 8%;
+    letter-spacing: .3em;
 }
+
 header p {
-    position: absolute;
     font-family: futura02;
     font-size: 13px;
-    letter-spacing: 0.15em;
+    position: absolute;
     top: 51.5vh;
     left: 8%;
+    letter-spacing: .15em;
 }
-header picture img{
+
+header picture img {
     position: absolute;
-    width: 96%;
     top: 0;
     right: 0;
+    width: 96%;
 }
+
 header #fv_egg {
     position: absolute;
     width: 100%;
 }
+
 /* ========= メイン ========= */
 .inner {
     width: 375px;
     margin: auto;
 }
+
 /* プロフィール */
 #profile {
     position: relative;
-    width: 88%;
     top: 200px;
+    width: 88%;
     margin-left: 4.5%;
 }
+
 #profile #whiteob {
     margin-left: 4.5%;
 }
+
 #profile #rikako_img {
     position: absolute;
-    width: 35%;
     top: 100px;
     left: 15%;
+    width: 35%;
 }
+
 #profile #spoon {
     position: absolute;
-    width: 15%;
     top: 211px;
     left: 63%;
+    width: 15%;
 }
+
 #profile #fork {
     position: absolute;
-    width: 22%;
     top: 254px;
     left: 53%;
+    width: 22%;
 }
+
 #profile h2 {
-    position: absolute;
-    font-size: 25px;
-    color: #88ab97;
     font-family: futura02;
-    letter-spacing: 0.1em;
+    font-size: 25px;
+    position: absolute;
     top: 100px;
     left: 55%;
+    letter-spacing: .1em;
+    color: #88ab97;
 }
+
 #profile .btn {
-    position: absolute;
-    background: #88ab97;
-    color: #efefe9;
     font-family: ab-babywalk, sans-serif;
+    font-size: 14px;
     font-weight: 400;
     font-style: normal;
-    font-size: 14px;
+    position: absolute;
     top: 150px;
     left: 63%;
     padding: 8px 17px 6px;
     text-decoration: none;
+    color: #efefe9;
     border-radius: 100vh;
+    background: #88ab97;
 }
+
 /* ワークス */
 #works {
     position: relative;
-    margin-top: 450px;
-    width: 64%;
     left: 28%;
+    width: 64%;
+    margin-top: 450px;
 }
+
 #works h2 {
-    position: absolute;
-    font-size: 25px;
-    color: #efefe9;
     font-family: futura02;
-    letter-spacing: 0.1em;
+    font-size: 25px;
+    position: absolute;
     top: 90px;
     left: 25%;
+    letter-spacing: .1em;
+    color: #efefe9;
 }
+
 #works #egg02 {
     position: absolute;
-    width: 20%;
     top: 153px;
     left: 16%;
+    width: 20%;
 }
+
 #works #egg01 {
     position: absolute;
-    width: 21%;
     top: 148px;
     left: 3%;
+    width: 21%;
 }
+
 /* 矢印 */
 .container {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    top: 90px;
+    left: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 90px;
-    left: 30%;
-  }
-  
-  .field {
+    width: 100%;
+    height: 100%;
+}
+
+.field {
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 300px;
-  }
-  .arrow {
+}
+
+.arrow {
+    position: relative;
     width: 0;
     height: 60px;
-    border: 2px solid #efefe9;
-    position: relative;
-    animation: scroll 2.5s infinite;
     -webkit-animation: scroll 2.5s infinite;
-  }
-  .arrow::after {
-    content: "";
-    display: block;
+    animation: scroll 2.5s infinite;
+    border: 2px solid #efefe9;
+}
+
+.arrow::after {
     position: absolute;
     top: 100%;
     left: -5px;
+    display: block;
     width: 1px;
     height: 10px;
+    content: '';
     border-top: 10px solid #efefe9;
-    border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-  }
-  
-  @keyframes scroll {
+    border-left: 5px solid transparent;
+}
+
+@keyframes scroll {
     0% {
-      height: 60px;
+        height: 60px;
     }
+
     30% {
-      height: 140px;
+        height: 140px;
     }
+
     60% {
-      height: 60px;
+        height: 60px;
     }
-  }
-  @-webkit-keyframes scroll {
+}
+
+@-webkit-keyframes scroll {
     0% {
-      height: 40px;
+        height: 40px;
     }
+
     30% {
-      height: 140px;
+        height: 140px;
     }
+
     60% {
-      height: 40px;
+        height: 40px;
     }
-  }
+}
+
 /* webデザイン */
 .title_white {
     width: 45%;
-    margin-left: 2%;
     margin-top: 90px;
+    margin-left: 2%;
 }
+
 #webdesign {
     position: relative;
     width: 90%;
     height: 1365px;
-    background: #efefe9;
     margin-top: -20px;
     margin-left: 50%;
     transform: translateX(-50%);
     border-radius: 50px;
+    background: #efefe9;
 }
+
 #webdesign h2 {
-    position: absolute;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-size: 25px;
     font-weight: 900;
+    position: absolute;
     top: -80px;
     left: -1%;
     color: #88ab97;
 }
+
 /* nenrin */
 #nenrin picture {
     position: absolute;
-    width: 83.4%;
+    z-index: 200;
     top: 65px;
     left: 50%;
+    width: 83.4%;
     transform: translateX(-50%);
-    z-index: 200;
 }
+
 #nenrin .area01 {
     position: absolute;
-    background: #88ab97;
-    width: 82.8%;
-    padding: 80px 7% 20px 7%;
-    height: 360px;
+    z-index: 100;
     top: 75px;
     left: 11%;
+    width: 82.8%;
+    height: 360px;
+    padding: 80px 7% 20px 7%;
     border-radius: 45px;
-    z-index: 100;   
+    background: #88ab97;
 }
+
 /* 背景 */
 .downward {
     animation: grn 2s ease;
 }
+
 @keyframes grn {
-    0%{height: 195px;}
-    100%{height: 360px;}
+    0% {
+        height: 195px;
+    }
+
+    100% {
+        height: 360px;
+    }
 }
 
 /* テキスト */
 .under {
     padding-top: 130px;
 }
+
 .long .under {
     animation: text 2s ease;
 }
+
 @keyframes text {
-    0%{padding-top: 0;}
-    100%{padding-top: 130px;}
+    0% {
+        padding-top: 0;
+    }
+
+    100% {
+        padding-top: 130px;
+    }
 }
-    /* タイトル */
-    #nenrin h3,#hibika h3,#syowa h3 {
-        display: flex;
-        padding-left: 5px;
-        font-family: 'M PLUS Rounded 1c', sans-serif;
-    }
-    .number {
-        font-size: 25px;
-        border-bottom: 2.8px solid #fff;
-    }
-    .sitetitle {
-        padding-top: 5px;
-        padding-left: 8px;
-        font-size: 19px;
-        letter-spacing: 0.1em;
-    }
-    /* 説明 */
-    .area01 p,.area02 p,.area03 p {
-        font-size: 14px;
-        padding: 15px 15px 0;
-    }
+
+/* タイトル */
+#nenrin h3,
+#hibika h3,
+#syowa h3 {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    display: flex;
+    padding-left: 5px;
+}
+
+.number {
+    font-size: 25px;
+    border-bottom: 2.8px solid #fff;
+}
+
+.sitetitle {
+    font-size: 19px;
+    padding-top: 5px;
+    padding-left: 8px;
+    letter-spacing: .1em;
+}
+
+/* 説明 */
+.area01 p,
+.area02 p,
+.area03 p {
+    font-size: 14px;
+    padding: 15px 15px 0;
+}
+
 /* hibika */
 #hibika picture {
     position: absolute;
-    width: 83.4%;
+    z-index: 200;
     top: 495px;
     left: 50%;
+    width: 83.4%;
     transform: translateX(-50%);
-    z-index: 200;
 }
+
 #hibika .area02 {
     position: absolute;
-    background: #88ab97;
-    width: 82.8%;
-    padding: 80px 7% 20px 7%;
-    height: 360px;
+    z-index: 100;
     top: 505px;
     left: 11%;
+    width: 82.8%;
+    height: 360px;
+    padding: 80px 7% 20px 7%;
     border-radius: 45px;
-    z-index: 100;   
+    background: #88ab97;
 }
+
 /* syowa */
 #syowa picture {
     position: absolute;
-    width: 83.4%;
+    z-index: 200;
     top: 925px;
     left: 50%;
+    width: 83.4%;
     transform: translateX(-50%);
-    z-index: 200;
 }
+
 #syowa .area03 {
     position: absolute;
-    background: #88ab97;
-    width: 82.8%;
-    padding: 80px 7% 20px 7%;
-    height: 360px;
+    z-index: 100;
     top: 935px;
     left: 11%;
+    width: 82.8%;
+    height: 360px;
+    padding: 80px 7% 20px 7%;
     border-radius: 45px;
-    z-index: 100;   
+    background: #88ab97;
 }
+
 #syowa .area03 .sitetitle {
     font-size: 18px;
-    letter-spacing: 0;
     padding-top: 10px;
+    letter-spacing: 0;
 }
+
 /* グラフィック */
 #graphic {
     position: relative;
     width: 90%;
     height: 1470px;
-    background: #efefe9;
     margin-top: -20px;
     margin-left: 50%;
     transform: translateX(-50%);
     border-radius: 50px;
+    background: #efefe9;
 }
+
 #graphic h2 {
-    position: absolute;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-size: 25px;
     font-weight: 900;
+    position: absolute;
     top: -80px;
     left: 6%;
     color: #88ab97;
 }
+
 #graphic img {
     position: relative;
-    width: 226px;
     z-index: 200;
     left: 17.3%;
+    width: 226px;
     border-radius: 55px;
 }
+
 #graphic img:hover {
-    transform: translate(6px,6px);
+    transform: translate(6px, 6px);
 }
+
 .lgback {
     position: absolute;
-    background: #88ab97;
-    width: 225px;
-    height: 222px;
     z-index: 100;
     left: 52.5%;
+    width: 225px;
+    height: 222px;
     transform: translateX(-50%);
     border-radius: 55px;
+    background: #88ab97;
 }
+
 .lgback01 {
     top: 64px;
 }
+
 .lgback02 {
     top: 344px;
 }
+
 .lgback03 {
     top: 625px;
 }
+
 .lgback04 {
     top: 904px;
 }
+
 .lgback05 {
     top: 1187px;
 }
+
 .lg {
     padding-top: 55px;
 }
+
 .greenob_back {
     position: absolute;
+    z-index: -100;
     top: 4692px;
     left: -4px;
-    z-index: -100;
 }
+
 footer {
     height: 240px;
-    text-align: center;
     margin-top: 109px;
+    text-align: center;
 }
+
 footer #log {
-    font-size: 19px;
     font-family: futura;
-    letter-spacing: 0.3em;
+    font-size: 19px;
     padding-top: 10px;
     padding-bottom: 37.5px;
+    letter-spacing: .3em;
 }
+
 footer ul {
-    padding-bottom: 30px;
     font-family: futura02;
+    padding-bottom: 30px;
 }
+
 footer ul li {
     padding-bottom: 9px;
 }
+
 footer small {
-    font-size: 12px;
     font-family: futura02;
+    font-size: 12px;
 }
