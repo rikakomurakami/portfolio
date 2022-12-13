@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="発酵,米粉パン,料理教室,腸に優しい料理,オンラインレッスン,zoom,レッスン,和食,Instagram">
+        <meta name="description" content="広島県東広島市高谷町 「発酵の力で心も身体も健康に美しく」をコンセプトに、発酵料理と米粉パンなどを中心とした料理教室。">
+        <title>MURAKAMI RIKAKO portfoliosite webデザイナー</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;900&display=swap" rel="stylesheet">     
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>     
+        <script>
+            // ハンバーガーメニュー　
+            $(function(){
+                $('.btnHamburger').on('click', function(){
+                    $('.btnHamburger,#coverlayer,nav').toggleClass('is-active');
+                });
+	            $('nav ul li a').on('click', function(){
+                    $('.btnHamburger,#coverlayer,nav').removeClass('is-active');
+                });
+
+            $("#topBtn").hide();
+             $(window).on("scroll", function () {
+                if ($(this).scrollTop() > 100) { 
+                    $("#topBtn").fadeIn("fast"); 
+                } else {$("#topBtn").fadeOut("fast");}
+                    scrollHeight = $(document).height();
+                    scrollPosition = $(window).height() + $(window).scrollTop(); 
+                    footHeight = $("footer").innerHeight();
+                if (scrollHeight - scrollPosition <= footHeight) { 
+                    $("#topBtn").css({
+                    "position": "absolute",
+                });
+                } else { 
+                    $("#topBtn").css({
+                    "position": "fixed", 
+                });
+                }
+            });
+            });
+            // アドビフォント
+            (function(d) {
+                var config = {
+                    kitId: 'qha7gyd',
+                    scriptTimeout: 3000,
+                    async: true
+                },
+                h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+            })(document);
+
+// 動きのきっかけとなるアニメーションの名前を定義
+function fadeAnime(){
+
+  // ふわっ
+  $('.area01,.area02,.area03').each(function(){ //このクラス名が
+    var elemPos = $(this).offset().top-50;//要素より、50px上の
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height();
+    if (scroll >= elemPos - windowHeight){
+    $(this).addClass('downward');// 画面内に入ったらfadeUpというクラス名を追記
+    }else{
+    $(this).removeClass('downward');// 画面外に出たらfadeUpというクラス名を外す
+    }
+    });
+
+    // text
+    $('.area01,.area02,.area03').each(function(){
+    var elemPos = $(this).offset().top-50;
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height();
+    if (scroll >= elemPos - windowHeight){
+    $(this).addClass('long');
+    }else{
+    $(this).removeClass('long');
+    }
+    });
+}
+
+// 画面をスクロールをしたら動かしたい場合の記述
+  $(window).scroll(function (){
+    fadeAnime();/* アニメーション用の関数を呼ぶ*/
+  });// ここまで画面をスクロールをしたら動かしたい場合の記述
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+  $(window).on('load', function(){
+    fadeAnime();/* アニメーション用の関数を呼ぶ*/
+  });// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+
+
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <!-- カバーレイヤー -->
+            <div id="coverlayer"></div>
+            <!-- ハンバーガーボタン -->
+            <div class="btnHamburger"> <span class="line line_01"></span> <span class="line line_02"></span> <span class="line line_03"></span> </div>
+            <!-- ヘッダー -->
+            <header>
+                <picture>
+                    <source srcset="images/ai/top_mb.svg" media="(max-width: 599px)">
+                    <source srcset="images/ai/top_tb.svg" media="(max-width: 960px)">
+                    <img src="images/ai/top_pc.svg"  alt="グリーンとホワイトの水玉や目玉焼き"> 
+                </picture>
+                <div id="fv_egg">
+                    <img src="images/ai/fv.egg.svg" alt="皿に載った卵焼きのイラスト">
+                </div>
+                <h1>RIKAKO MURAKAMI</h1>
+                <p>It's a web designer profile site.</p>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">TOP</a></li>
+                        <li><a href="#">PROFILE</a></li>
+                        <li><a href="#">WORKS</a></A></li>
+                        <li><a href="#">GRAPHIC</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- メイン -->
+            <main class="inner">
+                <!-- プロフィール -->
+                <article id="profile">
+                    <div id="whiteob">
+                        <img src="images/ai/white_ob.svg" alt="白い水玉">
+                    </div>
+                    <div id="rikako_img">
+                        <img src="images/profile_mb.png" alt="rikako murakamiのフォロフィール画像">
+                    </div>
+                    <div id="spoon">
+                        <img src="images/ai/spoon.svg" alt="オレンジ色のスプーンのイラスト">
+                    </div>
+                    <div id="fork">
+                        <img src="images/ai/fork.svg" alt="オレンジ色のフォークのイラスト">
+                    </div>
+                    <h2>PROFILE</h2>
+                    <a href="#" class="btn">CHECK</a>
+                </article>
+                <!-- ワークス -->
+                <div id="works">
+                    <div id="greenob">
+                        <img src="images/ai/worksgreen.svg" alt="緑の水玉">
+                    </div>
+                    <h2>WORKS</h2>
+                    <div id="egg02">
+                            <img src="images/ai/egg02.svg"  alt="卵のイラスト"> 
+                    </div>
+                    <div id="egg01">
+                            <img src="images/ai/egg01.svg"  alt="卵のイラスト"> 
+                    </div>
+                    <!-- 矢印 -->
+                    <div class="container">
+                        <div class="field">
+                          <div class="arrow"></div>
+                        </div>
+                      </div>
+                </div>
+                <!-- Webデザイン -->
+                <div class="title_white white01">
+                        <img src="images/ai/ttitle.svg" alt="白い水玉">
+                </div>
+                <article id="webdesign">
+                    <h2>Web design</h2>
+                    <!-- nenrin -->
+                    <section id="nenrin">
+                        <picture>
+                            <source srcset="images/work/nenrin_mb.png" media="(max-width: 599px)">
+                            <source srcset="images/work/nenrin_tb.png" media="(max-width: 960px)">
+                            <img src="images/work/nenrin_mb.png"  alt="架空サイト「NENRIN」のメイン画像"> 
+                        </picture>
+                        <!-- 緑の背景 -->
+                        <div class="area01">
+                            <!-- テキスト -->
+                            <div class="under">
+                                <h3>
+                                    <div class="number">01</div>
+                                    <div class="sitetitle">NENRIN  個人制作</div>
+                                </h3>
+                                <p>架空のインテリアブランドのブランディングサイトを制作しました。</p>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- hibika -->
+                    <section id="hibika">
+                        <picture>
+                            <source srcset="images/work/hibika_mb.png" media="(max-width: 599px)">
+                            <source srcset="images/work/hibika_tb.png" media="(max-width: 960px)">
+                            <img src="images/work/hibika_mb.png"  alt="料理教室「hibika」の公式サイトののメイン画像"> 
+                        </picture>
+                        <!-- 緑の背景 -->
+                        <div class="area02">
+                            <!-- テキスト -->
+                            <div class="under">
+                            <h3>
+                                <div class="number">02</div>
+                                <div class="sitetitle">hibika  個人制作</div>
+                            </h3>
+                            <p>実際に存在する料理教室「hibika」の公式サイトを制作しました。</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="syowa">
+                        <picture>
+                            <source srcset="images/work/syowa_mb.png" media="(max-width: 599px)">
+                            <source srcset="images/work/syowa_tb.png" media="(max-width: 960px)">
+                            <img src="images/work/syowa_mb.png"  alt="架空サイト「SYOWA」のメイン画像"> 
+                        </picture>
+                        <!-- 緑の背景 -->
+                        <div class="area03">
+                            <!-- テキスト -->
+                            <div class="under">
+                                <h3>
+                                    <div class="number">03</div>
+                                    <div class="sitetitle">SYOWA  グループ制作</div>
+                                </h3>
+                                <p>高級志向チョコレートブランドのプロモーションサイトを制作しました。</p>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+                <!-- グラフィック -->
+                <div class="title_white white02">
+                        <img src="images/ai/ttitle.svg" alt="白い水玉">
+                </div>
+                <article id="graphic">
+                    
+                    <h2>Graphic</h2>
+                    <div class="lg">
+                        <div class="lgback lgback01"></div>
+                        <img src="images/graphic/e-works_pc.png"  alt="ロゴデザイン">                         
+                    </div>
+                    <div class="lg">
+                        <div class="lgback lgback02"></div>
+                        <img src="images/graphic/e-works02_pc.png"  alt="ロゴデザイン"> 
+                    </div>
+                    <div class="lg">
+                        <div class="lgback lgback03"></div>
+                        <img src="images/graphic/nland_pc.png"  alt="ロゴデザイン"> 
+                    </div>
+                    <div class="lg">
+                        <div class="lgback lgback04"></div>
+                        <img src="images/graphic/hibikalog_pc.png"  alt="ロゴデザイン"> 
+                    </div>
+                    <div class="lg">
+                        <div class="lgback lgback05"></div>
+                        <picture>
+                            <source srcset="images/graphic//hibikacard_mb.png" media="(max-width: 599px)">
+                            <source srcset="images/graphic//hibikacard_tb.png" media="(max-width: 960px)">
+                            <img src="images/graphic//hibikacard_pc.png"  alt="ロゴデザイン"> 
+                        </picture>
+                    </div>
+                </article>
+                <div class="greenob_back inner">
+                    <img src="images/ai/green.svg" alt="緑の水玉">
+                </div>
+            </main>
+            <footer>
+                <div id="log">RIKAKO MURAKAMI</div>
+                <ul>
+                    <li><a href="index.html">TOP</a></li>
+                    <li><a href="#">PROFILE</a></li>
+                    <li><a href="#">WORKS</a></li>
+                </ul>
+                <small>@2022 Murakami rikako.</small>
+            </footer>
+        </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="js/3-2-3-1.js"></script>
+    </body>
+</html>
